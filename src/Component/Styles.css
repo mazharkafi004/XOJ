@@ -1,0 +1,39 @@
+.footer{
+    position: fixed;
+   color: aliceblue;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color:peru;
+    text-align: center;
+    font-size: large;
+    font-style: italic;
+    font-family:'Times New Roman', Times, serif
+}
+* > body {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .App {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+  }
+  .table{
+      text-align: center;
+      font-size: large;
+      border: 10%;
+      margin-right: -55%;
+      background-color: antiquewhite;
+  }
+  .box{
+      position: fixed;
+      background-origin: padding-box;
+      border: 1%;
+      margin-left: 20%;
+      margin-right: 20%;
+      margin-bottom: 10%;
+      margin-inline-end: 10%;
+  }
+  
+  
