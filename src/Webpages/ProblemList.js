@@ -65,8 +65,8 @@ export default class ProblemList extends Component {
       width: 70
       },{
          
-            Header: 'rating',  
-            accessor: 'rating',
+            Header: 'tags',  
+            accessor: 'tags',
             sort: 'asc',
             width: 70
             
@@ -74,7 +74,7 @@ export default class ProblemList extends Component {
   ]
     return (
       <div className='box'>
-          <ReactTable className='table' 
+          <ReactTable responsive className='table' 
       data={this.state.users }  
       
       columns={columns}  

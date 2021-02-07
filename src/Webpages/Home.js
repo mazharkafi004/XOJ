@@ -1,10 +1,14 @@
 import React, { Component, Fragment } from 'react';
+import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
 
 class Home extends Component {
     render() {
         return (
             <Fragment>
+             
                 <h1>Home</h1>
+               
+             
             </Fragment>
         );
     }

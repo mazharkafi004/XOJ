@@ -14,6 +14,7 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import InfoIcon from '@material-ui/icons/Info';
 import Header from '../Component/Header';
 import "../Component/Styles.css"
+import NavBar from '../Component/NavBar';
 
 class Navigation extends Component {
     
@@ -21,29 +22,34 @@ class Navigation extends Component {
         return (
           <div className="App">
                <Container className="header first">
-            <Header></Header>
+                 
+          
+            <NavBar></NavBar>
   
               
            
             <div className="stand">
                 
           
-<Fab color="primary" >
-  <AccountBoxIcon NavLink exact activeStyle={{color:'black'}} to="/profile"></AccountBoxIcon>
+<Link to="/profile"><Fab color="primary" >
+  <AccountBoxIcon ></AccountBoxIcon>
  
-</Fab>
+</Fab></Link>
+<br></br>
+<Link to="/problemlist"><Fab color="primary" >
+  <ListAltIcon /> 
+</Fab></Link>
+<br></br>
 
-<Fab color="primary" >
-  <ListAltIcon />
-</Fab>
-
-<Fab color="primary">
+<Link to="/compiler"><Fab color="primary">
   <FilterListIcon  />
-</Fab>
+</Fab></Link>
 
-<Fab color="primary">
+<br></br>
+<Link to="/settings"><Fab color="primary">
   <SettingsIcon />
-</Fab>
+</Fab></Link>
+
             </div>
             
              

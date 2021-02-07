@@ -34,7 +34,9 @@ const navLinks = [
   { title: `Leaderboard`, path: `/Leaderboard`},
   { title: `problemlist`, path: `/problemlist` },
   { title: `others`, path: `/signup` },
+  { title: `info`, path: `/home` },
   { title: `info`, path: `/compiler` },
+  { title: `table`, path: `/table` },
  
 ];
 

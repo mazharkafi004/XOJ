@@ -37,3 +37,21 @@
   }
   
   
+
+  nav, .navbar-brand{
+background-color:rgb(75, 88, 206) !important;
+font-family: sans-serif;
+font-size: 24px;
+left:0cm;
+    right: 0cm;
+
+
+  }
+
+  li,a{
+      color:white !important;
+  }
+  .fix{
+    left:0cm;
+    right: 0cm;
+  }

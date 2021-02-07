@@ -28,8 +28,8 @@ code {
   
     position: fixed;
     left:0cm;
-    top: -.7cm;
     right: 0cm;
+    top: -.7cm;
   
 }
 a:link {
@@ -42,7 +42,7 @@ a:link {
 .stand{
   position: fixed;
 
-  bottom: 5%;
-  right: 1%;
+  bottom: 25%;
+  right: 2%;
 }
 

@@ -5,9 +5,14 @@ import {Route} from "react-router-dom";
 import Profile from '../Webpages/Profile';
 import SignIn from '../Webpages/Signin';
 import SignUp from '../Webpages/Signup';
-import Compiler from '../Webpages/Compiler';
+
 import ProblemList from '../Webpages/ProblemList';
-import ResponsiveDrawer from '../Webpages/Drawer';
+import StickyHeadTable from '../Component/Table';
+import CustomPaginationActionsTable from '../Component/Table';
+import NavBar from '../Component/NavBar';
+import Settings from '../Webpages/Settings';
+import Compiler from '../Compiler/Compiler';
+
 
 
 
@@ -20,10 +25,15 @@ class Fullrouter extends Component {
                 <Route exact path="/profile" component={Profile}></Route>
                 <Route exact path="/signin" component={SignIn}></Route>
                 <Route exact path="/signup" component={SignUp}></Route>
-                <Route exact path="/compiler" component={Compiler}></Route>
+              
                 <Route exact path="/problemlist" component={ProblemList}></Route>
-                <Route exact path="/drawer" component={ResponsiveDrawer}></Route>
-           
+                <Route exact path="/navbar" component={NavBar}></Route>
+                <Route exact path="/settings" component={Settings}></Route>
+                <Route exact path="/table" component={CustomPaginationActionsTable}></Route>
+                <Route exact path="/compiler" component={Compiler}></Route>
+               
+               
+                
             </Fragment>
         );
     }
