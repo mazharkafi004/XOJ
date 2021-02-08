@@ -33,10 +33,8 @@ const useStyles = makeStyles({
 const navLinks = [
   { title: `Leaderboard`, path: `/Leaderboard`},
   { title: `problemlist`, path: `/problemlist` },
-  { title: `others`, path: `/signup` },
-  { title: `info`, path: `/home` },
-  { title: `info`, path: `/compiler` },
-  { title: `table`, path: `/table` },
+  { title: `Compiler`, path: `/compiler` },
+ 
  
 ];
 
@@ -47,9 +45,9 @@ const Header = () => {
     <AppBar position="fixed">
       <Toolbar>
         <Container  className={classes.navbarDisplayFlex}>
-          <IconButton edge="start" color="inherit" aria-label="home">
+         <Link to="/home"> <IconButton edge="start" color="inherit" aria-label="home">
             <Home fontSize="large" />
-          </IconButton>
+          </IconButton></Link>
           <Hidden smDown>
             <List className="header"
               component="nav"

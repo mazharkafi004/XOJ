@@ -21,18 +21,22 @@
   }
   .table{
       text-align: center;
-      font-size: large;
-      border: 10%;
-      margin-right: -55%;
+      font-size: medium;
+      border: 15%;
+      margin-right: -45%;
       background-color: antiquewhite;
+      margin-bottom: 10%;
   }
   .box{
+    align-items: center;
       position: fixed;
       background-origin: padding-box;
       border: 1%;
+      bottom: -40%;
+      left: 10%;
       margin-left: 20%;
       margin-right: 20%;
-      margin-bottom: 10%;
+      margin-bottom: 20%;
       margin-inline-end: 10%;
   }
   

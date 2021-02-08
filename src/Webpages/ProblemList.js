@@ -17,6 +17,7 @@ const useStyles = makeStyles({
   });
 
 export default class ProblemList extends Component {
+ 
     
   constructor(props){
     super(props)
@@ -27,50 +28,43 @@ export default class ProblemList extends Component {
   }
   
   async getUsersData(){
-    const res = await axios.get('https://codeforces.com/api/problemset.problems')
+    const res = await axios.get('http://localhost:8000/api/oj/problist2/URI/')
     console.log(res.data)
-    this.setState({loading:false, users: res.data.result.problems})
+    this.setState({loading:false, users: res.data})
   }
   componentDidMount(){
     this.getUsersData()
   }
   render() {
     const columns = [{  
-      Header: 'contestId',  
-      accessor: 'contestId',
+      Header: 'OJ',  
+      accessor: 'oj',
       sort: 'asc',
-      width: 80
+      width: 80,
+     
      }
      ,{  
-      Header: 'index',  
-      accessor: 'index' ,
+      Header: 'Problem ID',  
+      accessor: 'prob-id' ,
       sort: 'asc',
-      width: 70
+      width: 100,
+     
       }
      
      ,{  
-     Header: 'name',  
-     accessor: 'name' ,
-     width: 200
+     Header: 'Title',  
+     accessor: 'prob-title' ,
+     width: 210,
+    
      }
-     ,{  
-     Header: 'points',  
-     accessor: 'points',
-     width: 70
-     },
+     ,
      {  
-      Header: 'rating',  
-      accessor: 'rating',
-      sort: 'asc',
-      width: 70
-      },{
-         
-            Header: 'tags',  
-            accessor: 'tags',
-            sort: 'asc',
-            width: 70
-            
-      }
+     Header: 'View',  
+     accessor: 'prob-title' ,
+     width: 210,
+    
+     }
+     ,
   ]
     return (
       <div className='box'>
@@ -78,8 +72,8 @@ export default class ProblemList extends Component {
       data={this.state.users }  
       
       columns={columns}  
-      defaultPageSize={10}
-      pageSizeOptions={[5,10]}
+      defaultPageSize={8}
+      pageSizeOptions={[4,8]}
    />
       </div>
     )

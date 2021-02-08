@@ -6,7 +6,11 @@ import { blue } from '@material-ui/core/colors';
 import { Container } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
-
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuIcon from '@material-ui/icons/Menu';
+import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import SettingsIcon from '@material-ui/icons/Settings';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import ListAltIcon from '@material-ui/icons/ListAlt';
@@ -24,31 +28,50 @@ class Navigation extends Component {
                <Container className="header first">
                  
           
-            <NavBar></NavBar>
+        <Header></Header>
   
               
            
             <div className="stand">
-                
-          
-<Link to="/profile"><Fab color="primary" >
+            <PopupState variant="popover" popupId="demo-popup-menu">
+      {(popupState) => (
+        <React.Fragment>
+          <Button className="stand"  color="primary" {...bindTrigger(popupState)}>
+          <Fab color="primary" >
+  <MenuIcon ></MenuIcon>
+ 
+</Fab>
+          </Button>
+          <Menu {...bindMenu(popupState)}>
+            <MenuItem onClick={popupState.close}><Link to="/profile"><Fab color="primary" >
   <AccountBoxIcon ></AccountBoxIcon>
  
-</Fab></Link>
-<br></br>
-<Link to="/problemlist"><Fab color="primary" >
+</Fab></Link></MenuItem>
+            <MenuItem onClick={popupState.close}><Link to="/problemlist"><Fab color="primary" >
   <ListAltIcon /> 
-</Fab></Link>
-<br></br>
+</Fab></Link></MenuItem>
 
-<Link to="/compiler"><Fab color="primary">
+
+
+<MenuItem onClick={popupState.close}><Link to="/compiler"><Fab color="primary">
   <FilterListIcon  />
-</Fab></Link>
-
-<br></br>
-<Link to="/settings"><Fab color="primary">
+</Fab></Link> </MenuItem>
+<MenuItem onClick={popupState.close}><Link to="/settings"><Fab color="primary">
   <SettingsIcon />
-</Fab></Link>
+</Fab></Link></MenuItem>
+          </Menu>
+        </React.Fragment>
+      )}
+    </PopupState> 
+          
+
+
+
+
+
+
+
+
 
             </div>
             

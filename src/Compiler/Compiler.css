@@ -7,27 +7,39 @@
   #source {
     width: 100% !important;
     background: #cccccc52;
-    height: 50vh;
+    height: 130%;
     font-size: 15px;
     resize: vertical;
   }
   #input {
     background: #cccccc52;
     width: 45.6%;
-    height: 17vh;
+    height: 20%;
+    
     resize: vertical;
     font-size: 17px;
+    margin-left: 1%
   }
   #output {
     background: #cccccc52;
-    width: 50%;
-    height: 100%;
+    width: 44%;
+    height: 60%;
     position: fixed;
-    top: 7.6%;
+    top: 15%;
+    left: 50%;
     font-size: 18px;
-    right: 0;
+    right: 15%;
     resize: none;
   }
   .language {
     width: 150px;
+  }
+  #top{
+    margin-top: 40%;
+  }
+  .mar{
+    margin-top: 10%;
+  }
+  .space{
+    margin-left: 1%;
   }

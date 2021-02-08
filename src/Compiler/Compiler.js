@@ -47,7 +47,7 @@ export default class Compiler extends Component {
         method: "POST",
         headers: {
           "x-rapidapi-host": rapidApiHost,
-          "x-rapidapi-key": rapidApiKey, // Get yours for free at https://rapidapi.com/hermanzdosilovic/api/judge0
+          "x-rapidapi-key": rapidApiKey, 
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -86,7 +86,7 @@ export default class Compiler extends Component {
           method: "GET",
           headers: {
             "x-rapidapi-host": rapidApiHost,
-            "x-rapidapi-key": rapidApiKey, // Get yours for free at https://rapidapi.com/hermanzdosilovic/api/judge0
+            "x-rapidapi-key": rapidApiKey, 
             "content-type": "application/json",
           },
         });
@@ -172,7 +172,10 @@ export default class Compiler extends Component {
             <i className="fas fa-user fa-fw fa-md"></i> User Input
           </span>
           <br />
+          <div className="mar">
+            <h4 className="space">   Enter Input</h4>
           <textarea id="input" onChange={this.userInput}></textarea>
+          </div>
         </div>
       </>
     );
