@@ -16,11 +16,11 @@ For deploying the backend server:
 
 The api list:
 
-* localhost:3000/admin/
-* localhost:3000/api/user/
-* localhost:3000/api/user/create/
-* localhost:3000/api/user/token/
-* localhost:3000/api/user/me/
-* localhost:3000/api/oj/problist/
-* localhost:3000/api/oj/problist2/URI/
-* localhost:3000/api/oj/problist2/UVA/
+* localhost:8000/admin/
+* localhost:8000/api/user/
+* localhost:8000/api/user/create/
+* localhost:8000/api/user/token/
+* localhost:8000/api/user/me/
+* localhost:8000/api/oj/problist/
+* localhost:8000/api/oj/problist2/URI/
+* localhost:8000/api/oj/problist2/UVA/
