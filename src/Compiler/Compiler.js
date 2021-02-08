@@ -12,41 +12,43 @@ export default class Compiler extends Component {
     };
   }
   input = (event) => {
- 
+
     event.preventDefault();
-  
+
     this.setState({ input: event.target.value });
     localStorage.setItem('input', event.target.value)
- 
+
   };
   userInput = (event) => {
     event.preventDefault();
     this.setState({ user_input: event.target.value });
   };
   language = (event) => {
-   
+
     event.preventDefault();
-   
+
     this.setState({ language_id: event.target.value });
     localStorage.setItem('language_Id',event.target.value)
-   
+
   };
 
   submit = async (e) => {
     e.preventDefault();
 
+    let rapidApiHost = "judge0-ce.p.rapidapi.com";
+    let rapidApiKey = "8ae6800991msh4895b2ff6b16a7bp168a18jsn6cdd72d0abbe";
+
     let outputText = document.getElementById("output");
     outputText.innerHTML = "";
     outputText.innerHTML += "Creating Submission ...\n";
     const response = await fetch(
-      "https://judge0-extra.p.rapidapi.com/submissions",
+      "https://"+ rapidApiHost +"/submissions",
       {
         method: "POST",
         headers: {
-          "x-rapidapi-host": "judge0-extra.p.rapidapi.com",
-          "x-rapidapi-key": "8ae6800991msh4895b2ff6b16a7bp168a18jsn6cdd72d0abbe", // Get yours for free at https://rapidapi.com/hermanzdosilovic/api/judge0
-          "content-type": "application/json",
-          accept: "application/json",
+          "x-rapidapi-host": rapidApiHost,
+          "x-rapidapi-key": rapidApiKey, // Get yours for free at https://rapidapi.com/hermanzdosilovic/api/judge0
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           source_code: this.state.input,
@@ -55,8 +57,14 @@ export default class Compiler extends Component {
         }),
       }
     );
-    outputText.innerHTML += "Submission Created ...\n";
     const jsonResponse = await response.json();
+    if (jsonResponse.token) {
+      outputText.innerHTML += "Submission Created ...\n";
+
+    }
+    else {
+      outputText.innerHTML += "Submission Failed ...\n";
+    }
 
     let jsonGetSolution = {
       status: { description: "Queue" },
@@ -67,17 +75,18 @@ export default class Compiler extends Component {
     while (
       jsonGetSolution.status.description !== "Accepted" &&
       jsonGetSolution.stderr == null &&
-      jsonGetSolution.compile_output == null
+      jsonGetSolution.compile_output == null &&
+      jsonResponse.token
     ) {
       outputText.innerHTML = `Creating Submission ... \nSubmission Created ...\nChecking Submission Status\nstatus : ${jsonGetSolution.status.description}`;
       if (jsonResponse.token) {
-        let url = `https://judge0-extra.p.rapidapi.com/submissions/${jsonResponse.token}?base64_encoded=true`;
+        let url = `https://${rapidApiHost}/submissions/${jsonResponse.token}?base64_encoded=true`;
 
         const getSolution = await fetch(url, {
           method: "GET",
           headers: {
-            "x-rapidapi-host": "judge0-extra.p.rapidapi.com",
-            "x-rapidapi-key": "8ae6800991msh4895b2ff6b16a7bp168a18jsn6cdd72d0abbe", // Get yours for free at https://rapidapi.com/hermanzdosilovic/api/judge0
+            "x-rapidapi-host": rapidApiHost,
+            "x-rapidapi-key": rapidApiKey, // Get yours for free at https://rapidapi.com/hermanzdosilovic/api/judge0
             "content-type": "application/json",
           },
         });
@@ -106,7 +115,7 @@ export default class Compiler extends Component {
     }
   };
   render() {
- 
+
     return (
       <>
         <div className="row container-fluid">
@@ -142,10 +151,10 @@ export default class Compiler extends Component {
               id="tags"
               className="form-control form-inline mb-2 language"
             >
-              <option value="2">C++</option>
-              <option value="1">C</option>
-              <option value="4">Java</option>
-              <option value="10">Python</option>
+              <option value="54">C++</option>
+              <option value="50">C</option>
+              <option value="62">Java</option>
+              <option value="71">Python</option>
             </select>
           </div>
           <div className="col-5">
