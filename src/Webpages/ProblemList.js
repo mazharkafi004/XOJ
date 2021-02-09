@@ -75,10 +75,12 @@ export default function ImgMediaCard() {
          <b> Visit Site</b>
         </Button>
         </a>
+        
       <Link to="/problemlisturi">  <Button size="small" color="primary">
       <b> View Problemlist</b>
         </Button>
       </Link>
+     
       </CardActions>
     </Card>
     <Card className={classes.root} className="gist">
