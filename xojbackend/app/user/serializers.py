@@ -8,11 +8,24 @@ class UsersSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'password', 'name')
+        fields = ('email', 'password', 'name', 'cf_handle', 'cf_pass',\
+                  'uri_handle', 'uri_pass', 'uva_handle', 'uva_pass')
         extra_kwargs = {
             'password': {
                 'write_only': True,
                 'min_length': 5,
+                'style': {'input_type': 'password'}
+            },
+            'cf_pass': {
+                'write_only': True,
+                'style': {'input_type': 'password'}
+            },
+            'uva_pass': {
+                'write_only': True,
+                'style': {'input_type': 'password'}
+            },
+            'uri_pass': {
+                'write_only': True,
                 'style': {'input_type': 'password'}
             }
         }
