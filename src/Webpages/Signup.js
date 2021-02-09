@@ -97,12 +97,83 @@ export default function SignUp() {
                 autoComplete="current-password"
               />
             </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="cf-id"
+                name="cf-id"
+                variant="outlined"
+                required
+                fullWidth
+                id="cf-id"
+                label="Codeforces handle"
+                autoFocus
               />
             </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="cf-pass"
+                label="Codeforces Password"
+                type="password"
+                id="cf-pass"
+                autoComplete="current-password"
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="uri-id"
+                name="uri-id"
+                variant="outlined"
+                required
+                fullWidth
+                id="cf-id"
+                label="URI handle"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="uri-pass"
+                label="URI Password"
+                type="password"
+                id="uri-pass"
+                autoComplete="current-password"
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="uva-id"
+                name="uva-id"
+                variant="outlined"
+                required
+                fullWidth
+                id="uva-id"
+                label="UVA handle"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="uva-pass"
+                label="UVA Password"
+                type="password"
+                id="uva-pass"
+                autoComplete="current-password"
+              />
+            </Grid>
+           
+
+
           </Grid>
           <Button
             type="submit"
@@ -113,7 +184,7 @@ export default function SignUp() {
           >
             Sign Up
           </Button>
-          <Grid container justify="flex-end">
+          <Grid container>
             <Grid item>
               <Link to="signin" variant="body2">
                 Already have an account? Sign in
