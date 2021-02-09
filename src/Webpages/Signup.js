@@ -13,9 +13,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Route } from 'react-router-dom';
-
-
+import { Route, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -49,8 +47,10 @@ const initialFormData = Object.freeze({
   uri_pass: ""
 });
 
+
 export default function SignUp() {
   const [formData, updateFormData] = React.useState(initialFormData);
+  const history = useHistory();
 
   const handleChange = (e) => {
     updateFormData({
@@ -64,7 +64,13 @@ export default function SignUp() {
     console.log(formData);
 
     axios.post("http://localhost:8000/api/user/create",formData).then((res) => {
-      console.log(res);
+      if(res.status == 201){
+        console.log('Signup Success');
+        history.push('/signin');
+      }
+      else {
+        console.log('Failed to singup')
+      }
     },(error) => {
       console.log(error);
     });
