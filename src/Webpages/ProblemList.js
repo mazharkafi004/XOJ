@@ -35,7 +35,9 @@ export default class ProblemList extends Component {
   }
   componentDidMount(){
     this.getUsersData()
-  }
+  };
+
+
   render() {
     const columns = [{
       Header: 'OJ',
@@ -68,6 +70,7 @@ export default class ProblemList extends Component {
      ,
   ]
     return (
+    
       <div className='box'>
           <ReactTable responsive className='table'
       data={this.state.users }

@@ -1,62 +1,19 @@
-import React, { useState } from 'react';
-import { Document, Page } from 'react-pdf/dist/esm/entry.parcel';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 
-import './Sample.less';
+import React from 'react';
+import Viewer, { Worker } from '@phuocng/react-pdf-viewer';
+import '@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css';
 
-import pdfFile from './sample.pdf';
 
-const options = {
-  cMapUrl: 'cmaps/',
-  cMapPacked: true,
-};
-
-export default function Sample() {
-  const [file, setFile] = useState(pdfFile);
-  const [numPages, setNumPages] = useState(null);
-
-  function onFileChange(event) {
-    setFile(event.target.files[0]);
-  }
-
-  function onDocumentLoadSuccess({ numPages: nextNumPages }) {
-    setNumPages(nextNumPages);
-  }
-
+function PdfViewer() {
   return (
-    <div className="Example">
-      <header>
-        <h1>react-pdf sample page</h1>
-      </header>
-      <div className="Example__container">
-        <div className="Example__container__load">
-          <label htmlFor="file">Load from file:</label>
-          {' '}
-          <input
-            onChange={onFileChange}
-            type="file"
-          />
-        </div>
-        <div className="Example__container__document">
-          <Document
-            file={file}
-            onLoadSuccess={onDocumentLoadSuccess}
-            options={options}
-          >
-            {
-              Array.from(
-                new Array(numPages),
-                (el, index) => (
-                  <Page
-                    key={`page_${index + 1}`}
-                    pageNumber={index + 1}
-                  />
-                ),
-              )
-            }
-          </Document>
-        </div>
-      </div>
+    <div className="App">
+     <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.5.207/build/pdf.worker.min.js">
+    <div id="pdfviewer">
+      <Viewer fileUrl="https://cors-anywhere.herokuapp.com/https://onlinejudge.org/external/1/p100.pdf" />
+    </div>
+</Worker>
     </div>
   );
 }
+
+export default PdfViewer;
