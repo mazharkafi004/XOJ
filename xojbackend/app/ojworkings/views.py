@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+from django.http import HttpResponse,JsonResponse
 from rest_framework import viewsets
 from rest_framework.response import Response
 import requests
@@ -33,3 +33,17 @@ def problist2(request, oj):
     else:
         pass
     return JsonResponse(problist, safe=False)
+
+def probshow(request, oj, probid):
+    """shows problem details"""
+    cliente = requests.session()
+    rrs = ""
+    if oj == "URI":
+        url = "https://www.urionlinejudge.com.br/repository/UOJ_{}_en.html".format(probid)
+        rrs = cliente.get(url)
+        print(rrs.content)
+
+    res = HttpResponse(rrs.content)
+    del res['X-Frame-Options']
+    res['X-Frame-Options'] = 'ALL'
+    return res
