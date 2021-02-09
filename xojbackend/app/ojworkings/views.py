@@ -33,8 +33,6 @@ def problist2(request, oj):
     else:
         pass
     res = JsonResponse(problist, safe=False)
-    res['Access-Control-Allow-Origin'] = 'http://localhost:3000'
-    res['Access-Control-Allow-Credentials'] = True
     return res
 
 def probshow(request, oj, probid):
