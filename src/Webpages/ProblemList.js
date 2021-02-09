@@ -4,6 +4,7 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css'
 import { makeStyles } from '@material-ui/core/styles';
 import "../Component/Styles.css"
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -62,7 +63,7 @@ export default class ProblemList extends Component {
      Header: 'View',  
      accessor: 'prob-title' ,
      width: 210,
-    
+     Cell: e =><a href={e.value}> <Link to="/urlproblem"><button>View</button></Link> </a>
      }
      ,
   ]

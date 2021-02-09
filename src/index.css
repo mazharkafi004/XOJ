@@ -46,3 +46,9 @@ a:link {
   right: 1%;
 }
 
+.box{
+  
+ top: 10%;
+ right: 10%;
+border-left: 0.1ch;
+}

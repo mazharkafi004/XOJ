@@ -15,6 +15,7 @@ import Compiler from '../Compiler/Compiler';
 import ProblemListUva from '../Webpages/ProblemListUva';
 
 import Sample from '../PdfViewer/PdfViewer';
+import URIproblemView from '../Webpages/URIproblemView';
 
 
 
@@ -37,6 +38,7 @@ class Fullrouter extends Component {
                 <Route exact path="/table" component={CustomPaginationActionsTable}></Route>
                 <Route exact path="/uva" component={ProblemListUva}></Route>
                 <Route exact path="/pdf" component={Sample}></Route>
+                <Route exact path="/urlproblem" component={URIproblemView}></Route>
                 <Route exact path="/compiler" component={Compiler}></Route>
                
                
