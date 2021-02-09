@@ -159,9 +159,9 @@ export default class Compiler extends Component {
           </div>
           <div className="col-5">
             <div>
-              <span className="badge badge-info heading my-2 ">
-                <i className="fas fa-exclamation fa-fw fa-md"></i> Output
-              </span>
+            <h4 className="space first">Results:</h4>
+            <br></br>
+            
               <textarea id="output"></textarea>
             </div>
           </div>
@@ -173,7 +173,7 @@ export default class Compiler extends Component {
           </span>
           <br />
           <div className="mar">
-            <h4 className="space">   Enter Input</h4>
+            <h4 className="space">   Enter Input:</h4>
           <textarea id="input" onChange={this.userInput}></textarea>
           </div>
         </div>

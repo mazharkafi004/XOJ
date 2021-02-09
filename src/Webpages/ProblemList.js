@@ -35,8 +35,11 @@ export default class ProblemList extends Component {
   }
   componentDidMount(){
     this.getUsersData()
-  }
+  };
+
+
   render() {
+    
     const columns = [{  
       Header: 'OJ',  
       accessor: 'oj',
@@ -63,12 +66,14 @@ export default class ProblemList extends Component {
      Header: 'View',  
      accessor: 'prob-title' ,
      width: 210,
-     Cell: e =><a href={e.value}> <Link to="/urlproblem"><button>View</button></Link> </a>
+     Cell: e =><a href={e.value}> <Link to="/urlproblem"><button onClick>View</button></Link> </a>
      }
      ,
   ]
     return (
+    
       <div className='box'>
+      
           <ReactTable responsive className='table' 
       data={this.state.users }  
       

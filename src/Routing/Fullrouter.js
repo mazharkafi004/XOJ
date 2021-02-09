@@ -14,8 +14,12 @@ import Settings from '../Webpages/Settings';
 import Compiler from '../Compiler/Compiler';
 import ProblemListUva from '../Webpages/ProblemListUva';
 
-import Sample from '../PdfViewer/PdfViewer';
+
 import URIproblemView from '../Webpages/URIproblemView';
+import PdfViewer from '../Webpages/PdfViewer';
+import Hulululu from '../Webpages/ProblemListUva';
+
+
 
 
 
@@ -34,10 +38,11 @@ class Fullrouter extends Component {
        
                 <Route exact path="/problemlist" component={ProblemList}></Route>
                 <Route exact path="/navbar" component={NavBar}></Route>
+                
                 <Route exact path="/settings" component={Settings}></Route>
-                <Route exact path="/table" component={CustomPaginationActionsTable}></Route>
+                <Route exact path="/table" component={Hulululu}></Route>
                 <Route exact path="/uva" component={ProblemListUva}></Route>
-                <Route exact path="/pdf" component={Sample}></Route>
+                <Route exact path="/pdf" component={PdfViewer}></Route>
                 <Route exact path="/urlproblem" component={URIproblemView}></Route>
                 <Route exact path="/compiler" component={Compiler}></Route>
                
