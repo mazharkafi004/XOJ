@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     },
   });
 
-export default class ProblemListUva extends Component {
+export default class ProblemListUri extends Component {
 
 
   constructor(props){
@@ -29,7 +29,7 @@ export default class ProblemListUva extends Component {
   }
 
   async getUsersData(){
-    const res = await axios.get('http://localhost:8000/api/oj/problist2/UVA/')
+    const res = await axios.get('http://localhost:8000/api/oj/problist2/URI/')
     console.log(res.data)
     this.setState({loading:false, users: res.data})
   }

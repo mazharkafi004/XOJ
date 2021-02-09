@@ -49,7 +49,7 @@ const Header = () => {
     <AppBar position="fixed">
       <Toolbar>
         <Container  className={classes.navbarDisplayFlex}>
-         <Link to="/home"> <IconButton edge="start" color="inherit" aria-label="home">
+         <Link to="/"> <IconButton edge="start" color="inherit" aria-label="home">
             <Home fontSize="large" />
           </IconButton></Link>
           <Hidden smDown>
