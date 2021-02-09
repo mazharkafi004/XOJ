@@ -84,3 +84,25 @@ border-left: 0.1ch;
   top:0;
   cursor:move;
 }
+.dist{
+  box-sizing: border-box;
+  margin-left: 2%;
+  margin-top: 5%;
+  margin-right: 70%;
+  background-color: #333;
+}
+.fist{
+  box-sizing: border-box;
+  margin-left: 34%;
+  margin-top: -21%;
+  margin-right: 40%;
+}
+.gist{
+  box-sizing: border-box;
+  margin-left: 64%;
+  margin-top: -19%;
+  margin-right: 10%;
+}
+.pos{
+  margin-top: 10%;
+}
