@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 
@@ -36,12 +37,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const initialFormData = Object.freeze({
+  name: "",
+  password: "",
+  email: "",
+  cf_handle: "",
+  cf_pass: "",
+  uva_handle: "",
+  uva_pass: "",
+  uri_handle: "",
+  uri_pass: ""
+});
+
 export default function SignUp() {
+  const [formData, updateFormData] = React.useState(initialFormData);
+
+  const handleChange = (e) => {
+    updateFormData({
+      ...formData,
+      [e.target.name]: e.target.value.trim()
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(formData);
+
+    axios.post("http://localhost:8000/api/user/create",formData).then((res) => {
+      console.log(res);
+    },(error) => {
+      console.log(error);
+    });
+  };
+
   const classes = useStyles();
 
   return (
     <Container component="main" maxWidth="xs">
-    
+
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <AccountCircle />
@@ -49,18 +82,19 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="name"
                 variant="outlined"
                 required
                 fullWidth
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -83,6 +117,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -95,18 +130,20 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="cf-id"
-                name="cf-id"
+                name="cf_handle"
                 variant="outlined"
                 required
                 fullWidth
                 id="cf-id"
                 label="Codeforces handle"
                 autoFocus
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -114,24 +151,26 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                name="cf-pass"
+                name="cf_pass"
                 label="Codeforces Password"
                 type="password"
                 id="cf-pass"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
             </Grid>
 
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="uri-id"
-                name="uri-id"
+                name="uri_handle"
                 variant="outlined"
                 required
                 fullWidth
-                id="cf-id"
+                id="uri-id"
                 label="URI handle"
                 autoFocus
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -139,24 +178,26 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                name="uri-pass"
+                name="uri_pass"
                 label="URI Password"
                 type="password"
                 id="uri-pass"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
             </Grid>
 
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="uva-id"
-                name="uva-id"
+                name="uva_handle"
                 variant="outlined"
                 required
                 fullWidth
                 id="uva-id"
                 label="UVA handle"
                 autoFocus
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -164,14 +205,15 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                name="uva-pass"
+                name="uva_pass"
                 label="UVA Password"
                 type="password"
                 id="uva-pass"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
             </Grid>
-           
+
 
 
           </Grid>
@@ -193,7 +235,7 @@ export default function SignUp() {
           </Grid>
         </form>
       </div>
-      
+
     </Container>
   );
 }
