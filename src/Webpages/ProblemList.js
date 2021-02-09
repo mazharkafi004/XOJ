@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import ReactTable from "react-table"; 
+import ReactTable from "react-table";
 import 'react-table/react-table.css'
 import { makeStyles } from '@material-ui/core/styles';
 import "../Component/Styles.css"
@@ -18,8 +18,8 @@ const useStyles = makeStyles({
   });
 
 export default class ProblemList extends Component {
- 
-    
+
+
   constructor(props){
     super(props)
     this.state = {
@@ -27,7 +27,7 @@ export default class ProblemList extends Component {
       loading:true
     }
   }
-  
+
   async getUsersData(){
     const res = await axios.get('http://localhost:8000/api/oj/problist2/URI/')
     console.log(res.data)
@@ -37,42 +37,42 @@ export default class ProblemList extends Component {
     this.getUsersData()
   }
   render() {
-    const columns = [{  
-      Header: 'OJ',  
+    const columns = [{
+      Header: 'OJ',
       accessor: 'oj',
       sort: 'asc',
       width: 80,
-     
+
      }
-     ,{  
-      Header: 'Problem ID',  
+     ,{
+      Header: 'Problem ID',
       accessor: 'prob-id' ,
       sort: 'asc',
       width: 100,
-     
+
       }
-     
-     ,{  
-     Header: 'Title',  
+
+     ,{
+     Header: 'Title',
      accessor: 'prob-title' ,
      width: 210,
-    
+
      }
      ,
-     {  
-     Header: 'View',  
-     accessor: 'prob-title' ,
+     {
+     Header: 'View',
+     accessor: 'prob-id' ,
      width: 210,
-     Cell: e =><a href={e.value}> <Link to="/urlproblem"><button>View</button></Link> </a>
+     Cell: e =><a href={e.value}> <Link to={"/probshow/"+e.value}><button>View</button></Link> </a>
      }
      ,
   ]
     return (
       <div className='box'>
-          <ReactTable responsive className='table' 
-      data={this.state.users }  
-      
-      columns={columns}  
+          <ReactTable responsive className='table'
+      data={this.state.users }
+
+      columns={columns}
       defaultPageSize={8}
       pageSizeOptions={[4,8]}
    />
