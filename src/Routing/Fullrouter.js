@@ -33,21 +33,21 @@ class Fullrouter extends Component {
                 <Route exact path="/profile" component={Profile}></Route>
                 <Route exact path="/signin" component={SignIn}></Route>
                 <Route exact path="/signup" component={SignUp} ></Route>
-                
-                                                   
-       
+
+
+
                 <Route exact path="/problemlist" component={ProblemList}></Route>
                 <Route exact path="/navbar" component={NavBar}></Route>
                 
                 <Route exact path="/settings" component={Settings}></Route>
                 <Route exact path="/table" component={Hulululu}></Route>
                 <Route exact path="/uva" component={ProblemListUva}></Route>
-                <Route exact path="/pdf" component={PdfViewer}></Route>
-                <Route exact path="/urlproblem" component={URIproblemView}></Route>
+            
+                <Route exact path="/probshow/:probid" component={URIproblemView}></Route>
                 <Route exact path="/compiler" component={Compiler}></Route>
-               
-               
-                
+
+
+
             </Fragment>
         );
     }
