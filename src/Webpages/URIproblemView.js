@@ -39,7 +39,7 @@ class URIproblemView extends Component {
       "prob_id":this.props.match.params.probid
     }
 
-    let token = const tokenString = localStorage.getItem('token');
+    let token = localStorage.getItem('token');
 
     axios.post("http://localhost:8000/api/oj/URI/submit/",formData,
             {
