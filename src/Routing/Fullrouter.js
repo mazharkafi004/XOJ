@@ -31,7 +31,7 @@ class Fullrouter extends Component {
     render() {
         return (
             <Fragment>
-                 <Route exact path="/" component={ProblemList}></Route>
+                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/Leaderboard" component={Leaderboard} ></Route>
                 <Route exact path="/profile" component={Profile}></Route>
                 <Route exact path="/signin" component={SignIn}></Route>

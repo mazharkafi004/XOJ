@@ -4,8 +4,11 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css'
 import { makeStyles } from '@material-ui/core/styles';
 import "../Component/Styles.css"
+import Fab from '@material-ui/core/Fab';
 import { Link } from 'react-router-dom';
-
+import Button from '@material-ui/core/Button'
+import "../index.css"
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 const useStyles = makeStyles({
     root: {
       width: '100%',
@@ -70,8 +73,15 @@ export default class ProblemListUri extends Component {
      ,
   ]
     return (
-    
-      <div className='box'>
+
+  <div>
+ <div className="janina">
+ <Link to="/problemlist"><Fab color="primary" >
+  <ArrowBackIcon ></ArrowBackIcon>
+ 
+</Fab></Link>
+ </div>
+        <div className='box'>
           <ReactTable responsive className='table'
       data={this.state.users }
 
@@ -80,6 +90,7 @@ export default class ProblemListUri extends Component {
       pageSizeOptions={[4,8]}
    />
       </div>
+  </div>
     )
   }
 }
