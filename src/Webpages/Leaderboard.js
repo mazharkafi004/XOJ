@@ -56,8 +56,14 @@ class Leaderboard extends Component {
         sort: 'asc',
         width: 500,
 
-        }
+        },
+        {
+         Header: 'Solve Count',
+         accessor: 'cf_pass' ,
+         sort: 'asc',
+         width: 100,
 
+         }
 
     ]
       return (

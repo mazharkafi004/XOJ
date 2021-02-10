@@ -16,10 +16,6 @@ class UsersSerializer(serializers.ModelSerializer):
                 'min_length': 5,
                 'style': {'input_type': 'password'}
             },
-            'cf_pass': {
-                'write_only': True,
-                'style': {'input_type': 'password'}
-            },
             'uva_pass': {
                 'write_only': True,
                 'style': {'input_type': 'password'}
