@@ -16,6 +16,7 @@ import Container from '@material-ui/core/Container';
 import StickyFooter from '../Component/Footer';
 import Footer from '../Component/Footer';
 import SignUp from './Signup';
+import useToken from '../Component/UseToken';
 import { Route, useHistory } from 'react-router-dom';
 
 
@@ -45,6 +46,7 @@ const initialFormData = Object.freeze({
 });
 
 export default function SignIn() {
+  const { token, setToken } = useToken();
   const [formData, updateFormData] = React.useState(initialFormData);
   const history = useHistory();
 
@@ -62,7 +64,9 @@ export default function SignIn() {
     axios.post("http://localhost:8000/api/user/token",formData).then((res) => {
       if(res.status == 200){
         console.log('Signin Success');
-        console.log(res.data);
+        console.log(res.data.token);
+        setToken(res.data);
+        console.log('the token is: '+token);
 
         history.push('/');
       }
