@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('problist',views.Problist, basename='problist')
+router.register('URI/submit',views.UriSubmit,basename = "uriSubmit")
 
 urlpatterns = [
     path('',include(router.urls)),
