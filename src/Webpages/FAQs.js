@@ -83,7 +83,7 @@ export default function FAQs() {
           aria-controls="panel4bh-content"
           id="panel4bh-header"
         >
-          <Typography className={classes.heading}><b>When will some new features will come?</b></Typography>
+          <Typography className={classes.heading}><b>When will some new features come?</b></Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
