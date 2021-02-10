@@ -46,8 +46,10 @@ class Navigation extends Component {
             <MenuItem onClick={popupState.close}><Link to="/profile"><Fab color="primary" >
   <AccountBoxIcon ></AccountBoxIcon>
  
-</Fab></Link></MenuItem>
-            <MenuItem onClick={popupState.close}><Link to="/problemlist"><Fab color="primary" >
+</Fab></Link>
+
+</MenuItem>
+            <MenuItem onClick={popupState.close}><Link to="/contactus"><Fab color="primary" >
   <ListAltIcon /> 
 </Fab></Link></MenuItem>
 
@@ -56,7 +58,7 @@ class Navigation extends Component {
 <MenuItem onClick={popupState.close}><Link to="/compiler"><Fab color="primary">
   <FilterListIcon  />
 </Fab></Link> </MenuItem>
-<MenuItem onClick={popupState.close}><Link to="/settings"><Fab color="primary">
+<MenuItem onClick={popupState.close}><Link to="/faqs"><Fab color="primary">
   <SettingsIcon />
 </Fab></Link></MenuItem>
           </Menu>
