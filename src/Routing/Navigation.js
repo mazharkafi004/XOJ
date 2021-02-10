@@ -56,7 +56,7 @@ class Navigation extends Component {
 <MenuItem onClick={popupState.close}><Link to="/compiler"><Fab color="primary">
   <FilterListIcon  />
 </Fab></Link> </MenuItem>
-<MenuItem onClick={popupState.close}><Link to="/settings"><Fab color="primary">
+<MenuItem onClick={popupState.close}><Link to="/faqs"><Fab color="primary">
   <SettingsIcon />
 </Fab></Link></MenuItem>
           </Menu>

@@ -19,6 +19,7 @@ import URIproblemView from '../Webpages/URIproblemView';
 import PdfViewer from '../Webpages/PdfViewer';
 import Hulululu from '../Webpages/ProblemListUva';
 import ProblemListUri from '../Webpages/ProblemListUri';
+import FAQs from '../Webpages/FAQs';
 
 
 
@@ -40,7 +41,7 @@ class Fullrouter extends Component {
                 <Route exact path="/problemlisturi" component={ProblemListUri}></Route>
                 <Route exact path="/navbar" component={NavBar}></Route>
                 
-                <Route exact path="/settings" component={Settings}></Route>
+                <Route exact path="/faqs" component={FAQs}></Route>
                 <Route exact path="/table" component={Hulululu}></Route>
                 <Route exact path="/uvalist" component={ProblemListUva}></Route>
             
