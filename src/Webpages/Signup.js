@@ -66,6 +66,7 @@ export default function SignUp() {
     axios.post("http://localhost:8000/api/user/create",formData).then((res) => {
       if(res.status == 201){
         console.log('Signup Success');
+      
         history.push('/signin');
       }
       else {
