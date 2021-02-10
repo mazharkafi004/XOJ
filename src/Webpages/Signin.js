@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from "axios";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 
@@ -15,7 +16,7 @@ import Container from '@material-ui/core/Container';
 import StickyFooter from '../Component/Footer';
 import Footer from '../Component/Footer';
 import SignUp from './Signup';
-import { Route } from 'react-router-dom';
+import { Route, useHistory } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,13 +39,47 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const initialFormData = Object.freeze({
+  password: "",
+  email: ""
+});
+
 export default function SignIn() {
+  const [formData, updateFormData] = React.useState(initialFormData);
+  const history = useHistory();
+
+  const handleChange = (e) => {
+    updateFormData({
+      ...formData,
+      [e.target.name]: e.target.value.trim()
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(formData);
+
+    axios.post("http://localhost:8000/api/user/token",formData).then((res) => {
+      if(res.status == 200){
+        console.log('Signin Success');
+        console.log(res.data);
+
+        history.push('/');
+      }
+      else {
+        console.log('Failed to singin')
+      }
+    },(error) => {
+      console.log(error);
+    });
+  };
+
   const classes = useStyles();
 
   return (
     <div>
         <Container component="main" maxWidth="xs">
- 
+
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <AccountCircle />
@@ -52,7 +87,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={handleSubmit} className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -63,6 +98,7 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={handleChange}
           />
           <TextField
             variant="outlined"
@@ -74,6 +110,7 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={handleChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -95,20 +132,20 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-         
+
               <Link to="/signup" >Don't have an account? Sign Up</Link>
             </Grid>
           </Grid>
         </form>
       </div>
-     
-      
-     
+
+
+
     </Container>
     <Route
                exact path="/signup"
                 component={SignUp}
-                
+
             />
     </div>
   );
