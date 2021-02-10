@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import "./Compiler.css";
+
+
 export default class Compiler extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +49,7 @@ export default class Compiler extends Component {
         method: "POST",
         headers: {
           "x-rapidapi-host": rapidApiHost,
-          "x-rapidapi-key": rapidApiKey, 
+          "x-rapidapi-key": rapidApiKey,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -86,7 +88,7 @@ export default class Compiler extends Component {
           method: "GET",
           headers: {
             "x-rapidapi-host": rapidApiHost,
-            "x-rapidapi-key": rapidApiKey, 
+            "x-rapidapi-key": rapidApiKey,
             "content-type": "application/json",
           },
         });
@@ -120,7 +122,7 @@ export default class Compiler extends Component {
       <>
         <div className="row container-fluid">
           <div className="col-6 ml-4 ">
-            <label for="solution ">
+            <label for="source">
               <span className="badge badge-info heading mt-2 ">
                 <i className="fas fa-code fa-fw fa-lg"></i> Code Here
               </span>
@@ -161,7 +163,7 @@ export default class Compiler extends Component {
             <div>
             <h4 className="space first">Results:</h4>
             <br></br>
-            
+
               <textarea id="output"></textarea>
             </div>
           </div>
