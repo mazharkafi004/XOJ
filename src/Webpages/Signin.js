@@ -68,7 +68,7 @@ export default function SignIn() {
         setToken(res.data);
         console.log('the token is: '+token);
 
-        history.push('/');
+        history.push('/problemlist');
       }
       else {
         console.log('Failed to singin')
