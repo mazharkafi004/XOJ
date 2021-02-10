@@ -86,7 +86,7 @@ class URIproblemView extends Component {
               className="btn btn-danger ml-2 mr-2 "
               onClick={this.submit}
             >
-              <i class="fas fa-cog fa-fw"></i> Run
+              <i class="fas fa-cog fa-fw"></i>Submit
             </button>
 
             <label for="tags" className="mr-1">

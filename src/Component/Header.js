@@ -31,7 +31,7 @@ const useStyles = makeStyles({
 });
 
 const navLinks = [
- 
+  { title: `leaderboard`, path: `/leaderboard` },
   { title: `problemlist`, path: `/problemlist` },
   { title: `Compiler`, path: `/compiler` },
  
