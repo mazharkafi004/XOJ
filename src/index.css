@@ -150,3 +150,14 @@ color: bisque;
 .janina{
   margin-left: 25%;
 }
+.ytsource{
+
+  width: 100% !important;
+  background: #cccccc52;
+  height: 160%;
+  font-size: 15px;
+  resize: vertical;
+}
+.tb{
+width: 60%;
+}

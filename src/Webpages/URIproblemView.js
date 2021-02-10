@@ -24,44 +24,6 @@ class URIproblemView extends Component {
     };
   }
 
-<<<<<<< HEAD
-  render() {
-    let url = "http://localhost:8000/api/oj/URI/"+ this.props.match.params.probid;
-      return (
-          <div className="row container-fluid" width="100%" height="100%">
-            <div className="col-6 ml-4" >
-              <iframe src={url} width="100%" height="100%"></iframe>
-            </div>
-            <div className="col-5">
-              <form>
-                <label for="solution ">
-                  <span className="badge badge-info heading mt-2 ">
-                    <i className="fas fa-code fa-fw fa-lg"></i> Code Here
-                  </span>
-                </label>
-                <textarea
-                required
-                name="source_code"
-                id="source"
-                className="source"
-                ></textarea>
-                <select
-                name="lang_id"
-                >
-                <option value={this.state.c_id}>C</option>
-                <option value={this.state.cpp_id}>C++</option>
-                <option value={this.state.java_id}>Java</option>
-                <option value={this.state.python_id}>Python</option>
-                </select>
-                <button>
-                Submit
-                </button>
-              </form>
-            </div>
-          </div>
-    );
-  }
-=======
     render() {
       let url = "http://localhost:8000/api/oj/URI/"+ this.props.match.params.probid;
         return (
@@ -73,13 +35,55 @@ class URIproblemView extends Component {
  
 </Fab></Link>
  </div>
+<div className="tb">
+<div className="row container-fluid">
+          <div className="col-6 ml-4 ">
+            <label for="source">
+            <h1><b>Code Here: </b></h1>
+            </label>
+            <textarea
+              required
+              name="solution"
+              id="source"
+              onChange={this.input}
+              className="ytsource"
+              value={this.state.input}
+            ></textarea>
+
+            <button
+              type="submit"
+              className="btn btn-danger ml-2 mr-2 "
+              onClick={this.submit}
+            >
+              <i class="fas fa-cog fa-fw"></i> Run
+            </button>
+
+            <label for="tags" className="mr-1">
+              <b className="heading">Language:</b>
+            </label>
+            <select
+              value={this.state.language_id}
+              onChange={this.language}
+              id="tags"
+              className="form-control form-inline mb-2 language"
+            >
+              <option value="54">C++</option>
+              <option value="50">C</option>
+              <option value="62">Java</option>
+              <option value="71">Python</option>
+            </select>
+          </div>
+        
+        </div>
+</div>
+
+           
                 <div className="box">
                 <iframe src={url} width="100%" height="90%"></iframe>
             </div>
             </div>
         );
     }
->>>>>>> 3f861ea5e6e2cfd43b577609a5632eedd8b8dbfd
 }
 
 export default URIproblemView;
