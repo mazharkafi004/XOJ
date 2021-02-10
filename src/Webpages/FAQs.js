@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FAQs() {
+  
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
