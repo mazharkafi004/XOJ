@@ -65,7 +65,7 @@ export default function SignIn() {
       if(res.status == 200){
         console.log('Signin Success');
         console.log(res.data.token);
-        setToken(res.data);
+        localStorage.setItem('token', res.data.token);
         console.log('the token is: '+token);
 
         history.push('/problemlist');
