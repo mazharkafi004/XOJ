@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup as bs
 from ojworkings.ojUtils import formToPayload
 
 
-def uriLogin(cliente):
+def uriLogin(cliente, username, password):
     """Login to uri with provided cliente"""
     # Basic OJ into
     url = "https://www.urionlinejudge.com.br/judge/en/login"
@@ -12,13 +12,7 @@ def uriLogin(cliente):
     passid = 'password'
     formIdName = 'method'
     formIdValue = 'post'
-    # Take username and password as input
-    username = ""
-    password = ""
-    if(username == "" and password == ""):
-        username = "jocelyn69@freadingsq.com"
-        password = "bitelane"
-
+    
     #prepares payload for login
     rrs = cliente.get(url)
     payload = formToPayload(rrs,formIdName,formIdValue)
@@ -30,10 +24,12 @@ def uriLogin(cliente):
 
     if rrs.url == "https://www.urionlinejudge.com.br/judge/en/":
         print("Loggin to uri successful")
+        return True
     else:
         print("Failed to login to uri")
+        return False
 
-    return rrs
+
 
 
 def uriSubmit(cliente,problemId,langId,solutionCode):
@@ -51,12 +47,15 @@ def uriSubmit(cliente,problemId,langId,solutionCode):
 
     submitUrl = 'https://www.urionlinejudge.com.br/judge/en/runs/add'
     rrs = cliente.post(submitUrl, data=payload)
-    return rrs
+    if rrs.status_code==200:
+        return True
+    else:
+        return False
 
 
 def testSubmit():
     """test submit function"""
-    cliente =  requests.session()
+    cliente = requests.session()
     uriLogin(cliente)
     code = '''#include<bits/stdc++.h>
 using namespace std;
@@ -66,7 +65,8 @@ int main(){
     return 0;
 }
 '''
-    uriSubmit(cliente,'1000','16',code)
+    rrs = uriSubmit(cliente,'1000','16',code)
+    print(rrs.status_code)
 
 
 def problistSerializer(pageCode):

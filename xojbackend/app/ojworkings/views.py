@@ -2,7 +2,10 @@ from django.http import HttpResponse,JsonResponse
 from rest_framework import viewsets
 from rest_framework.response import Response
 import requests
-from ojworkings.uriWorkings import uriLogin, getProblist as getUriProblist
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.views import ObtainAuthToken
+from ojworkings.uriWorkings import uriLogin, getProblist as getUriProblist, \
+                                   uriSubmit
 from ojworkings.uvaWorkings import uvaLogin, getProblist as getUvaProblist
 
 
@@ -48,3 +51,42 @@ def probshow(request, oj, probid):
     del res['X-Frame-Options']
     res['X-Frame-Options'] = 'ALL'
     return res
+
+
+class UriSubmit(viewsets.ViewSet):
+
+    authentication_classes= (TokenAuthentication,)
+    def create(self, request):
+        cliente = requests.session()
+        login = uriLogin(
+            cliente,
+            request.user.uri_handle,
+            request.user.uri_pass
+        )
+        if login :
+            submit = uriSubmit(
+                cliente,
+                request.data["prob_id"],
+                request.data["lang_id"],
+                request.data["source_code"]
+            )
+            if submit :
+                return Response(
+                    {
+                        "success": True
+                    }
+                )
+            else:
+                return Response(
+                    {
+                        "success": False,
+                        "msg": "Failed to submit"
+                    }
+                )
+        else :
+            return Response(
+                {
+                    "success": False,
+                    "msg": "Failed to login"
+                }
+            )
