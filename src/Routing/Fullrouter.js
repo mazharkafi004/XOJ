@@ -21,6 +21,7 @@ import Hulululu from '../Webpages/ProblemListUva';
 import ProblemListUri from '../Webpages/ProblemListUri';
 import FAQs from '../Webpages/FAQs';
 import ContactUs from '../Webpages/ContactUs';
+import CFproblems from '../Webpages/CFproblems';
 
 
 
@@ -40,6 +41,7 @@ class Fullrouter extends Component {
 
                 <Route exact path="/problemlist" component={ProblemList}></Route>
                 <Route exact path="/problemlisturi" component={ProblemListUri}></Route>
+                <Route exact path="/problemlistcf" component={CFproblems}></Route>
                 <Route exact path="/navbar" component={NavBar}></Route>
                 
                 <Route exact path="/faqs" component={FAQs}></Route>

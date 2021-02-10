@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
   });
 
-export default class ProblemListUri extends Component {
+export default class CFproblem extends Component {
 
 
   constructor(props){
@@ -32,9 +32,9 @@ export default class ProblemListUri extends Component {
   }
 
   async getUsersData(){
-    const res = await axios.get('http://localhost:8000/api/oj/problist2/URI/')
+    const res = await axios.get('https://codeforces.com/api/problemset.problems')
     console.log(res.data)
-    this.setState({loading:false, users: res.data})
+    this.setState({loading:false, users: res.data.results.problems})
   }
   componentDidMount(){
     this.getUsersData()
@@ -43,23 +43,29 @@ export default class ProblemListUri extends Component {
 
   render() {
     const columns = [{
-      Header: 'OJ',
-      accessor: 'oj',
+      Header: 'ID',
+      accessor: 'index',
       sort: 'asc',
       width: 80,
 
      }
      ,{
       Header: 'Problem ID',
-      accessor: 'prob-id' ,
+      accessor: 'contestId' ,
       sort: 'asc',
       width: 100,
 
       }
+, {Header: 'ID',
+accessor: 'index',
+sort: 'asc',
+width: 80,
 
+}
+,
      ,{
      Header: 'Title',
-     accessor: 'prob-title' ,
+     accessor: 'name' ,
      width: 210,
 
      }
@@ -82,7 +88,6 @@ export default class ProblemListUri extends Component {
 </Fab></Link>
  </div>
         <div className='box'>
-          <h1><b>URI ProblemList</b></h1>
           <ReactTable responsive className='table'
       data={this.state.users }
 

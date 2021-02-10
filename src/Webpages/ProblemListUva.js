@@ -82,6 +82,7 @@ export default class ProblemListUri extends Component {
 </Fab></Link>
  </div>
         <div className='box'>
+        <h1><b>UVa ProblemList</b></h1>
           <ReactTable responsive className='table'
       data={this.state.users }
 

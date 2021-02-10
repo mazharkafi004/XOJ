@@ -44,7 +44,7 @@ export default function ImgMediaCard() {
          <b> Visit Site</b>
         </Button>
         </a>
-      <Link>  <Button size="small" color="primary">
+      <Link to="/problemlistcf">  <Button size="small" color="primary">
       <b> View Problemlist</b>
         </Button>
       </Link>
